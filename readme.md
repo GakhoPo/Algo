@@ -1,4 +1,4 @@
-#this is the test
+# this is the test
 ---
 * Task
 * Purpose
@@ -23,6 +23,6 @@ function quickSort(arr) {
 console.log(quickSort(arr));
 ```
  Jacky | Mike | Tom 
--|-|-|-|
+-|-|-|
 Home|2|3
 
