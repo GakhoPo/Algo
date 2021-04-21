@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
 
 class Clocker extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            num: 0
-        }
-        this.tick = this.tick.bind(this);
+            num: 0,
+        };
     }
 
     componentDidMount() {
-        this.timerID = setInterval(()=> {
-            this.tick()}, 1000)
+        this.timerID = setInterval(() => {
+            this.tick();
+        }, 1000);
     }
 
     componentWillUnmount() {
@@ -21,18 +21,13 @@ class Clocker extends Component {
 
     tick() {
         this.setState((state) => ({
-            num: state.num + 1
-        }))
+            num: state.num + 1,
+        }));
     }
 
     render() {
-        return (
-            <div>The count is {this.state.num}</div>
-        )
+        return <div>The count is {this.state.num}</div>;
     }
 }
 
-ReactDOM.render(
-    <Clocker />,
-    document.getElementById('root')
-)
+ReactDOM.render(<Clocker />, document.getElementById("root"));
