@@ -36,3 +36,20 @@ function splitstr2(str2) {
     return res.join("-");
 }
 console.log(`splitstr2: ${splitstr2(str2)}`);
+let arr = [1, 2, 3];
+//map
+function mapUse(arr) {
+    arr.map((item) => (item = item * 2));
+    return arr;
+}
+//forEach
+function forEachUse(arr) {
+    let res = [];
+    arr.forEach((item) => {
+        item = item * 2;
+        //res.push(item * 2);
+    });
+    return arr;
+}
+console.log(`map: ${mapUse(arr)}`);
+console.log(`forEach: ${forEachUse(arr)}`);

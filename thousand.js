@@ -1,7 +1,6 @@
 const num = 13123903243;
 
 function format1(num) {
-    //let reg = /\d{1,3}(?=((\d{3})+$))/g;
     let reg = /\d{1,3}(?=(\d{3})+$)/g;
     return (num + "").replace(reg, "$&,");
 }

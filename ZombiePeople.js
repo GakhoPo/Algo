@@ -1,39 +1,39 @@
 function zombieBite(grid) {
-    let people = 0;
-    let q = [];
+    let people = 0,
+        days = 0;
+    let zomPos = [];
     const rows = grid.length,
         cols = grid[0].length;
-    for (let i = 0; i < grid.length; i++) {
-        for (let j = 0; j < grid[0].length; j++) {
-            if (grid[i][j] === 1) people++;
-            else if (grid[i][j] === 2) q.push([i, j]);
-        }
-    }
-    if (people === 0) return 0;
     const dirs = [
-        [1, 0],
         [0, 1],
+        [1, 0],
         [0, -1],
         [-1, 0],
     ];
-    let days = 0;
+    for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < cols; j++) {
+            if (grid[i][j] === 1) people++;
+            else if (grid[i][j] === 2) zomPos.push([i, j]);
+        }
+    }
+    if (people === 0) return 0;
     let len;
-    while ((len = q.length)) {
+    while ((len = zomPos.length)) {
         days++;
         for (let i = 0; i < len; i++) {
-            const zombie = q.shift();
+            const zom = zomPos.shift();
             for (let dir of dirs) {
-                const target = [zombie[0] + dir[0], zombie[1] + dir[1]];
+                const [x, y] = [zom[0] + dir[0], zom[1] + dir[1]];
                 if (
-                    target[0] >= 0 &&
-                    target[0] < rows &&
-                    target[1] >= 0 &&
-                    target[1] < cols &&
-                    grid[target[0]][target[1]] === 1
+                    x < rows &&
+                    x >= 0 &&
+                    y < cols &&
+                    y >= 0 &&
+                    grid[x][y] === 1
                 ) {
-                    q.push(target);
-                    grid[target[0]][target[1]]++;
+                    zomPos.push([x, y]);
                     people--;
+                    grid[x][y] = 2;
                 }
                 if (people === 0) return days;
             }
