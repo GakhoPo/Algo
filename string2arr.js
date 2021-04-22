@@ -46,8 +46,7 @@ function mapUse(arr) {
 function forEachUse(arr) {
     let res = [];
     arr.forEach((item) => {
-        item = item * 2;
-        //res.push(item * 2);
+        res.push(item * 2);
     });
     return arr;
 }

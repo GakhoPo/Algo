@@ -3,14 +3,14 @@
 function debounce(fn, wait) {
     let timer = null;
     return function () {
-        const context = this;
         const args = arguments;
         timer && clearTimeout(timer);
         timer = setTimeout(() => {
-            fn.apply(context, args);
+            fn.apply(this, args);
         }, wait);
     };
 }
+
 //2. 立即执行版本
 function debounce(fn, wait) {
     let timer = null;
@@ -21,26 +21,26 @@ function debounce(fn, wait) {
         timer = setTimeout(() => {
             timer = null;
         }, wait);
-        if (now) {
-            fn.apply(this, args);
-        }
+        if (now) fn.apply(this, args);
     };
 }
+
 //节流
 //1.时间戳版本
+//在持续触发事件的过程中，函数会立即执行，用户在wait秒内不管执行多少次事件，都会等待wait秒后再执行。
 function throttle(fn, wait) {
     var prev = 0;
     return function () {
         let now = Date.now();
-        let context = this;
         let args = arguments;
         if (now - prev > wait) {
-            fn.apply(context, args);
+            fn.apply(this, args);
             prev = now;
         }
     };
 }
 //2.定时器版本
+//在触发事件的过程中，不会立即执行，并且每wait秒执行一次，在停止触发事件后还会再执行一次。
 function throttle(fn, wait) {
     var timer = null;
     return function () {

@@ -2,7 +2,7 @@ function _debounce(n, func) {
     let count = 0;
     return (args) => {
         count = count < n ? count + 1 : 1;
-        if (count === n) return func.call(this, args);
+        if (count === 1) return func.call(this, args);
     };
 }
 
