@@ -1,8 +1,8 @@
 setTimeout(() => console.log(1), 0);
 new Promise((resolve, reject) => {
     console.log(2);
-    resolve();
-    //reject();
+    if (true) resolve();
+    else reject("error");
 })
     .then(() => {
         console.log(3);
