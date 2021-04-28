@@ -54,3 +54,8 @@ function throttle(fn, wait) {
         }
     };
 }
+
+console.log(!null); //true
+console.log(!12); //false
+console.log(!"pack"); //false
+console.log(!""); //true

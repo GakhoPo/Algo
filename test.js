@@ -29,3 +29,4 @@ const obj = {
     test,
 };
 obj.test();
+test.newApply(obj);

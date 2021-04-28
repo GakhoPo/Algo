@@ -25,7 +25,7 @@ Function.prototype.newBind = function (context) {
     let _this = this;
     return function F() {
         if (this instanceof F) return new _this(...args, ...arguments);
-        return _this.apply(context, args.concat(...arguments));
+        return _this.newApply(context, args.concat(...arguments));
     };
 };
 

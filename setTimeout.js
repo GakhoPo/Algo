@@ -10,3 +10,7 @@ new Promise((resolve, reject) => {
     .catch(() => console.log("error"))
     .then(() => console.log(4));
 setTimeout(() => console.log(5), 0);
+
+let map = new WeakMap();
+map.set({ id: 1 }, { id: 1 });
+console.log(map);
