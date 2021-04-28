@@ -1,11 +1,16 @@
 function father() {
-    return new Promise((resolve, reject) => {
-        resolve(true);
-    });
+    return Promise.resolve(true);
 }
 
 function son() {
-    if (father()) return true;
+    let flag = father();
+    return new Promise((resolve, reject) => resolve(flag));
 }
-console.log(son());
+console.log(son()); //未执行完毕
+
+son()
+    .then((mes) => {
+        if (mes) return 1;
+    })
+    .then((mes) => console.log(mes));
 //console.log(father());
