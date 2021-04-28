@@ -4,13 +4,13 @@ function father() {
 
 function son() {
     let flag = father();
-    return new Promise((resolve, reject) => resolve(flag));
+    return Promise.resolve(flag);
 }
 console.log(son()); //未执行完毕
 
 son()
     .then((mes) => {
-        if (mes) return 1;
+        if (mes) return Promise.resolve(2);
     })
     .then((mes) => console.log(mes));
 //console.log(father());
