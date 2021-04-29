@@ -11,7 +11,7 @@ class EventMode {
     }
 
     subscribe(type, func) {
-        let fns = this._handlers[type] || [];
+        let fns = this.handlers[type] || [];
         if (fns.indexOf(func) !== -1) fns.push(func);
     }
 
