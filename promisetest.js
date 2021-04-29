@@ -17,6 +17,11 @@ function mom() {
         .then((num) => {
             return add(num);
         })
-        .then((res) => console.log(typeof res));
+        .then((res) => console.log(Object.prototype.toString.call(res)));
 }
 mom();
+
+console.log(Object.prototype.toString.call(null));
+console.log(Object.prototype.toString.call(undefined));
+console.log(typeof undefined);
+console.log([] instanceof Object);
