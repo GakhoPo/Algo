@@ -24,6 +24,32 @@ function debounce(fn, wait) {
         if (now) fn.apply(this, args);
     };
 }
+//合并写法
+function debounce(fn, delay, immediate) {
+    let timer, context, args;
+    const later = () =>
+        setTimeout(() => {
+            timer = null;
+            if (!immediate) {
+                fn.apply(context, args);
+                context = null;
+                args = null;
+            }
+        }, delay);
+    return function (...params) {
+        if (!timer) {
+            timer = later();
+            if (immediate) fn.apply(this, params);
+            else {
+                context = this;
+                args = params;
+            }
+        } else {
+            clearTimeout(timer);
+            timer = later();
+        }
+    };
+}
 
 //节流
 //1.时间戳版本
