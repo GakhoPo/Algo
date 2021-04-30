@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                padding: none;
+                border: none;
+                margin: none;
+                background-color: #e17d60;
+            }
+            .outer {
+                width: 500px;
+                height: 400px;
+                border: 1px solid #999;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #85dcba;
+                border-radius: 1%;
+            }
+
+            .inner {
+                width: 100px;
+                height: 100px;
+                border: 1px solid #999;
+                line-height: 100px;
+                text-align: center;
+                background-color: #e8a87c;
+                border-radius: 25%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="outer">
+            <input type="button" class="inner" value="Hello!" />
+        </div>
+    </body>
+</html>
