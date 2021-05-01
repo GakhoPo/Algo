@@ -1,27 +1,23 @@
-function add(num) {
+function _fetch() {
+    const json = '{"id": 1, "name": "pu"}';
+    return Promise.resolve(json);
+}
+
+function _check(json) {
     return new Promise((resolve, reject) => {
-        let res = num + 1;
-        if (res === 2) resolve(true);
-        else reject(false);
+        _json = JSON.parse(json);
+        resolve(_json);
     });
 }
 
-function father() {
-    return Promise.resolve(1);
-}
-
-function mom() {
+function _fetchAndValid() {
     return new Promise((resolve, reject) => {
-        resolve(father());
+        const json = _fetch();
+        resolve(json);
     })
-        .then((num) => {
-            return add(num);
-        })
-        .then((res) => console.log(Object.prototype.toString.call(res)));
+        .then((json) => _check(json))
+        .then((mes) => console.log(mes))
+        .catch((e) => console.log(false));
 }
-mom();
 
-console.log(Object.prototype.toString.call(null));
-console.log(Object.prototype.toString.call(undefined));
-console.log(typeof undefined);
-console.log([] instanceof Object);
+_fetchAndValid();
