@@ -1,32 +1,29 @@
-class Person {
-    constructor(name) {
-        this.name = name;
-        //this.printNameFunction = this.printNameFunction.bind(this);
+class EventBus {
+    constructor() {
+        this.handlers = {};
     }
 
-    printNameArrow() {
-        setTimeout(() => console.log("Arrow: " + this.name), 1000);
+    publish(type, value) {
+        let fns = this.handlers[type];
+        if (Array.isArray(fns)) {
+            fns.forEach((fn) => fn(value));
+        }
     }
 
-    printNameFunction() {
-        console.log("functionout: " + this.name);
-        setTimeout(function () {
-            console.log("Function: " + this.name);
-        }, 1000);
+    subscribe(type, func) {
+        let fns = this.handlers[type] || [];
+        if (fns.indexOf(func) !== -1) fns.push(func);
+    }
+
+    remove(type, func) {
+        if (!type) this.handlers = {};
+        else {
+            let fns = this.handlers[type];
+            if (!type) fns = [];
+            if (Array.isArray(fns)) {
+                const index = fns.indexOf(func);
+                if (index !== -1) fns.splice(index, 1);
+            }
+        }
     }
 }
-
-let person = new Person("Bob");
-person.printNameArrow();
-person.printNameFunction();
-
-const a = 1;
-function test() {
-    console.log("test" + this.a);
-}
-const obj = {
-    a: 2,
-    test,
-};
-obj.test();
-test.newApply(obj);

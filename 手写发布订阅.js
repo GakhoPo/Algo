@@ -1,4 +1,4 @@
-class EventMode {
+class EventBus {
     constructor() {
         this.handlers = {};
     }
@@ -20,11 +20,9 @@ class EventMode {
         else {
             let fns = this.handlers[type];
             if (!func) fns = [];
-            else {
-                if (Array.isArray(fns)) {
-                    let index = fns.indexOf(func);
-                    if (index !== -1) fns.splice(index, 1);
-                }
+            else if (Array.isArray(fns)) {
+                let index = fns.indexOf(func);
+                if (index !== -1) fns.splice(index, 1);
             }
         }
     }
