@@ -9,6 +9,11 @@ function promiseAll(arr) {
                 count++;
                 if (count === len) resolve(result);
             });
-        }).catch((e) => reject(e));
-    });
+        });
+    }).catch((e) => e);
 }
+let p1 = Promise.resolve(1);
+let p2 = Promise.resolve(2);
+let p3 = Promise.resolve(3);
+let arr = [p1, p2, p3];
+promiseAll(arr);
