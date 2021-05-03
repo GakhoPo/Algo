@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <style type="text/css">
+        .ADiv {
+            overflow: hidden;
+            border: 1px solid red;
+            width: 1000px;
+        }
+        .a1Div {
+            float: left;
+            border: 1px solid black;
+            width: 400px;
+            height: 100px;
+        }
+        .a2Div {
+            float: right;
+            border: 1px solid blue;
+            width: 500px;
+            height: 200px;
+            margin-bottom: 5px;
+        }
+        .a3Div {
+            clear: both;
+            width: 30%;
+            height: 500px;
+            border: 1px solid pink;
+        }
+    </style>
+    <body>
+        <div class="ADiv">
+            <div class="a1Div"></div>
+            <div class="a2Div">
+                <span
+                    >在父级标签中清除子级标签设置浮动带来的影响,用overflow:hidden;clear:both清除的是同级标签设置浮动所带来的影响</span
+                >
+            </div>
+            <div class="a3Div">
+                <span
+                    >父级标签使用overflow:
+                    hidden时,父级标签的高度被高度最大的子级标签撑开;</span
+                >
+            </div>
+        </div>
+    </body>
+</html>
