@@ -19,18 +19,23 @@ Function.prototype.newCall = function (context, ...args) {
     return result;
 };
 //Generate new bind
-Function.prototype.newBind = function (context) {
+Function.prototype.newBind = function (context, ...args) {
     context = context || window;
-    let args = [...arguments].slice(1);
+    args = args || [];
     let _this = this;
-    return function F() {
-        if (this instanceof F) return new _this(...args, ...arguments);
-        return _this.newApply(context, args.concat(...arguments));
-    };
+    function resultFn() {
+        let isnew = this instanceof resultFn;
+        return _this.newApply(
+            isnew ? this : context,
+            args.concat(...arguments)
+        );
+    }
+    resultFn.prototype = Object.create(_this.prototype);
+    return resultFn;
 };
 
 //test
-let val = 2;
+var val = 2;
 let foo = {
     val: 1,
 };
@@ -42,6 +47,7 @@ function bar(name, age) {
         age,
     };
 }
+bar.prototype.friend = "kevin";
 
 console.log(bar("jack", 20)); //{ val: 2, name: 'jack', age: 20 }
 console.log(bar.newApply(foo, ["jack", 20])); //{ val:}
