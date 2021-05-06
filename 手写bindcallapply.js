@@ -55,4 +55,6 @@ console.log(bar.newCall(foo, "rose", 19));
 let bind1 = bar.newBind(foo, "tank", 1000);
 let bind2 = bar.newBind(foo, "tank2");
 console.log(bind1());
-console.log(bind2(2000));
+bind2 = new bind2(2000);
+bind2 = { ...bind2, val: "new" };
+console.log(bind2);
