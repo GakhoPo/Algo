@@ -25,29 +25,19 @@ function debounce(fn, wait) {
     };
 }
 //合并写法
-function debounce(fn, delay, immediate) {
-    let timer, context, args;
-    const later = () =>
-        setTimeout(() => {
-            timer = null;
-            if (!immediate) {
-                fn.apply(context, args);
-                context = null;
-                args = null;
-            }
-        }, delay);
-    return function (...params) {
-        if (!timer) {
-            timer = later();
-            if (immediate) fn.apply(this, params);
-            else {
-                context = this;
-                args = params;
-            }
-        } else {
-            clearTimeout(timer);
-            timer = later();
-        }
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function () {
+        var context = this,
+            args = arguments;
+        var later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
     };
 }
 
