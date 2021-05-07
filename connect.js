@@ -1,41 +1,55 @@
-import React, { useContext } from "react";
-import ReactReduxContext from "./Context";
+import React from "react";
+import PropTypes from "prop-types";
 
-// 第一层函数接收mapStateToProps和mapDispatchToProps
-function connect(mapStateToProps, mapDispatchToProps) {
-    // 第二层函数是个高阶组件，里面获取context
-    // 然后执行mapStateToProps和mapDispatchToProps
-    // 再将这个结果组合用户的参数作为最终参数渲染WrappedComponent
-    // WrappedComponent就是我们使用connext包裹的自己的组件
-    return function connectHOC(WrappedComponent) {
-        function ConnectFunction(props) {
-            // 复制一份props到wrapperProps
-            const { ...wrapperProps } = props;
+// connect() => () => {} 函数的柯里化
+// const sum = (a) => { return (b) => a + b }
+// sum(1)(2) -> connect(mapStateToProps, mapDispatchToProps)(Comp)
 
-            // 获取context的值
-            const context = useContext(ReactReduxContext);
+// HOC 高阶组件
+const connect = (
+    mapStateToProps = (state) => state,
+    mapDispatchToProps = {}
+) => (WrapComponent) => {
+    return class ConnectComponent extends React.Component {
+        static contextTypes = {
+            store: PropTypes.object,
+        };
 
-            const { store } = context; // 解构出store
-            const state = store.getState(); // 拿到state
-
-            // 执行mapStateToProps和mapDispatchToProps
-            const stateProps = mapStateToProps(state);
-            const dispatchProps = mapDispatchToProps(store.dispatch);
-
-            // 组装最终的props
-            const actualChildProps = Object.assign(
-                {},
-                stateProps,
-                dispatchProps,
-                wrapperProps
-            );
-
-            // 渲染WrappedComponent
-            return <WrappedComponent {...actualChildProps}></WrappedComponent>;
+        constructor(props, context) {
+            super(props, context);
+            this.state = {
+                props: {}, // 声明了一个叫做 props 的 state
+            };
         }
 
-        return ConnectFunction;
+        componentDidMount() {
+            const { store } = this.context; // 从 Context 中拿到 store 对象
+            store.subscribe(() => this.update()); // 订阅 Redux 的数据更新
+            this.update();
+        }
+
+        // 每次数据有更新的时候，就会调用这个方法
+        update() {
+            const { store } = this.context; // 从 Context 中拿到 store 对象
+            const stateProps = mapStateToProps(store.getState()); // 把 store 中的全部数据传到组件内部
+            const dispatchProps = mapDispatchToProps(store.dispatch); //把 store.dispatch 传到组件内部
+
+            // 调用 setState 触发组件更新
+            // 将最新的 state 以及 dispatch 合并到当前组件的 props 上
+            this.setState({
+                props: {
+                    ...this.state.props,
+                    ...stateProps,
+                    ...dispatchProps,
+                },
+            });
+        }
+
+        render() {
+            // 传入 props
+            return <WrapComponent {...this.state.props}></WrapComponent>;
+        }
     };
-}
+};
 
 export default connect;
