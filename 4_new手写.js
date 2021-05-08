@@ -1,5 +1,7 @@
-function newMethod(Fn, ...args) {
-    let obj = Object.create(Fn.prototype);
-    const res = Fn.apply(obj, args);
-    return typeof res === "object" ? res : obj;
+function _new() {
+    let obj = {};
+    let Con = [].shift.call(arguments);
+    obj.__proto__ = Con.prototype;
+    let res = Con.apply(obj, arguments);
+    return typeof result === "object" ? res : obj;
 }
