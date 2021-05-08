@@ -34,4 +34,3 @@ const deepClone = (target) => {
     // 返回最终值
     return result;
 };
-console.log(checkedType([1, 2, 3]));
