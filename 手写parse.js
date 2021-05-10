@@ -14,7 +14,6 @@ function newParse(str) {
         function parseArr() {
             var res = [];
             i++;
-            //if (str[i] === ",")
             while (str[i] !== "]") {
                 res.push(judge());
                 if (str[i] === ",") i++;
