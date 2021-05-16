@@ -6,7 +6,6 @@ function newParse(str) {
         var i = 0;
         str = str.replace(/\s+/g, "");
         function judge() {
-            while (str[i] === " ") i++;
             if (str[i] === "[") return parseArr();
             else if (str[i] >= 0 && str[i] <= 9) return parseNum();
             else throw new Error("invalid array");
