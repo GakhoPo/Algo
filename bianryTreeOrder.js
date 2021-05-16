@@ -33,19 +33,19 @@ var inOrder = (root) => {
 var postOrder = (root) => {
     const res = [];
     const stack = [];
+    let last = null; // 标记上一个访问的节点
     let current = root;
-    let last = null;
     while (current || stack.length) {
         while (current) {
             stack.push(current);
-            current = current.right;
+            current = current.left;
         }
         current = stack[stack.length - 1];
-        if (!current.right || current.right === last) {
+        if (!current.right || current.right == last) {
             current = stack.pop();
             res.push(current.val);
             last = current;
-            current = null;
+            current = null; // 继续弹栈
         } else {
             current = current.right;
         }
