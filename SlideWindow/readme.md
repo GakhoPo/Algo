@@ -69,7 +69,7 @@ function slidingWindow(s, t) {
 
 Link: [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)
 
-### ![1_Minimum_Window_Substring](../SlideWindow/pic/1_Minimum_Window_Substring.png)
+![1_Minimum_Window_Substring](../SlideWindow/pic/1_Minimum_Window_Substring.png)
 
 ```js
 var minWindow = function(s, t) {
@@ -213,7 +213,7 @@ var numSubarraysWithSum = function(nums, goal) {
 
 ### 5.  Longest Substring Without Repeating Characters
 
-#### [3. Longest Substring Without Repeating Characters](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
+[3. Longest Substring Without Repeating Characters](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
 
 ![5_Longest_Substring_Without_Repeating_Characters](../SlideWindow/pic/5_Longest_Substring_Without_Repeating_Characters.png)
 
