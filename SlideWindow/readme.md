@@ -1,14 +1,13 @@
-[Slide Window](#slide-window)
-
-* [Aim:](#aim-)
-* [Thoughts](#thoughts)
-* [Framework](#framework)
-* [Example](#example)
-  + [1. Minimum Window Substring](#1-minimum-window-substring)
-  + [2.Permutation in String](#2permutation-in-string)
-  + [3. Find All Anagrams in a String](#3-find-all-anagrams-in-a-string)
-  + [4. Binary Subarrays With Sum](#4-binary-subarrays-with-sum)
-  + [5.  Longest Substring Without Repeating Characters](#5--longest-substring-without-repeating-characters)
+- [Slide Window](#slide-window)
+  * [Aim:](#aim-)
+  * [Thoughts](#thoughts)
+  * [Framework](#framework)
+  * [Example](#example)
+    + [1. Minimum Window Substring](#1-minimum-window-substring)
+    + [2.Permutation in String](#2permutation-in-string)
+    + [3. Find All Anagrams in a String](#3-find-all-anagrams-in-a-string)
+    + [4. Binary Subarrays With Sum](#4-binary-subarrays-with-sum)
+    + [5.  Longest Substring Without Repeating Characters](#5--longest-substring-without-repeating-characters)
 
 # Slide Window
 
@@ -236,4 +235,3 @@ var lengthOfLongestSubstring = function(s) {
     return maxLen
 };
 ```
-
