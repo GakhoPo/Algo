@@ -65,7 +65,7 @@ function slidingWindow(s, t) {
 
 ## Example
 
-### 1. Minimum Window Substring (LT 76)
+### 1. Minimum Window Substring
 
 Link: [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)
 
