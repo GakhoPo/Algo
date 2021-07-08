@@ -3,7 +3,7 @@
   * [Thoughts](#thoughts)
   * [Framework](#framework)
   * [Example](#example)
-    + [1. Minimum Window Substring (LT 76)](#1-minimum-window-substring--lt-76-)
+    + [1. Minimum Window Substring](#1-minimum-window-substring--lt-76-)
     + [2.Permutation in String](#2permutation-in-string)
     + [3. Find All Anagrams in a String](#3-find-all-anagrams-in-a-string)
     + [4. Binary Subarrays With Sum](#4-binary-subarrays-with-sum)
@@ -107,7 +107,7 @@ var minWindow = function(s, t) {
 
 Link: [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/)
 
-![2_Permutation_in_String](..\SlideWindow\pic\2_Permutation_in_String.png)
+![2_Permutation_in_String](../SlideWindow/pic/2_Permutation_in_String.png)
 
 ```js
 var checkInclusion = function(s1, s2) {
@@ -144,7 +144,7 @@ var checkInclusion = function(s1, s2) {
 
 Link: [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)
 
-![3_Find_All_Anagrams_in_a_String](..\SlideWindow\pic\3_Find_All_Anagrams_in_a_String.png)
+![3_Find_All_Anagrams_in_a_String](../SlideWindow/pic/3_Find_All_Anagrams_in_a_String.png)
 
 ```js
 var findAnagrams = function(s, p) {
@@ -182,7 +182,7 @@ var findAnagrams = function(s, p) {
 
 [930. Binary Subarrays With Sum](https://leetcode-cn.com/problems/binary-subarrays-with-sum/)
 
-![4_Binary_Subarrays_With_Sum](..\SlideWindow\pic\4_Binary_Subarrays_With_Sum.png)
+![4_Binary_Subarrays_With_Sum](../SlideWindow/pic/4_Binary_Subarrays_With_Sum.png)
 
 ```js
 var numSubarraysWithSum = function(nums, goal) {
@@ -214,7 +214,7 @@ var numSubarraysWithSum = function(nums, goal) {
 
 #### [3. Longest Substring Without Repeating Characters](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
 
-![5_Longest_Substring_Without_Repeating_Characters](..\SlideWindow\pic\5_Longest_Substring_Without_Repeating_Characters.png)
+![5_Longest_Substring_Without_Repeating_Characters](../SlideWindow/pic/5_Longest_Substring_Without_Repeating_Characters.png)
 
 ```js
 var lengthOfLongestSubstring = function(s) {
