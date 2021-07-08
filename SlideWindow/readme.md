@@ -1,4 +1,13 @@
-[TOC]
+- [Slide Window](#slide-window)
+  * [Aim:](#aim-)
+  * [Thoughts](#thoughts)
+  * [Framework](#framework)
+  * [Example](#example)
+    + [1. Minimum Window Substring (LT 76)](#1-minimum-window-substring--lt-76-)
+    + [2.Permutation in String](#2permutation-in-string)
+    + [3. Find All Anagrams in a String](#3-find-all-anagrams-in-a-string)
+    + [4. Binary Subarrays With Sum](#4-binary-subarrays-with-sum)
+    + [5.  Longest Substring Without Repeating Characters](#5--longest-substring-without-repeating-characters)
 
 # Slide Window
 
@@ -10,13 +19,13 @@
 
 ## Thoughts
 
-***1、***我们在字符串`S`中使用双指针中的左右指针技巧，初始化`left = right = 0`，**把索引左闭右开区间`[left, right)`称为一个「窗口」**。
+1、我们在字符串`S`中使用双指针中的左右指针技巧，初始化`left = right = 0`，**把索引左闭右开区间`[left, right)`称为一个「窗口」**。
 
-***2、***我们先不断地增加`right`指针扩大窗口`[left, right)`，直到窗口中的字符串符合要求（包含了`T`中的所有字符）。
+2、我们先不断地增加`right`指针扩大窗口`[left, right)`，直到窗口中的字符串符合要求（包含了`T`中的所有字符）。
 
-***3、***此时，我们停止增加`right`，转而不断增加`left`指针缩小窗口`[left, right)`，直到窗口中的字符串不再符合要求（不包含`T`中的所有字符了）。同时，每次增加`left`，我们都要更新一轮结果。
+3、此时，我们停止增加`right`，转而不断增加`left`指针缩小窗口`[left, right)`，直到窗口中的字符串不再符合要求（不包含`T`中的所有字符了）。同时，每次增加`left`，我们都要更新一轮结果。
 
-***4、***重复第 2 和第 3 步，直到`right`到达字符串`S`的尽头。
+4、重复第 2 和第 3 步，直到`right`到达字符串`S`的尽头。
 
 ## Framework
 
@@ -59,7 +68,7 @@ function slidingWindow(s, t) {
 
 Link: [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)
 
-### ![image-20210708133359939](C:\Users\pujhp\Desktop\Algo\SlideWindow\image-20210708133359939.png)
+### ![1_Minimum_Window_Substring](../SlideWindow/pic/1_Minimum_Window_Substring.png)
 
 ```js
 var minWindow = function(s, t) {
@@ -98,7 +107,7 @@ var minWindow = function(s, t) {
 
 Link: [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/)
 
-![image-20210708133218643](C:\Users\pujhp\Desktop\Algo\SlideWindow\image-20210708133218643.png)
+![2_Permutation_in_String](..\SlideWindow\pic\2_Permutation_in_String.png)
 
 ```js
 var checkInclusion = function(s1, s2) {
@@ -135,7 +144,7 @@ var checkInclusion = function(s1, s2) {
 
 Link: [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)
 
-![image-20210708133531990](C:\Users\pujhp\Desktop\Algo\SlideWindow\image-20210708133531990.png)
+![3_Find_All_Anagrams_in_a_String](..\SlideWindow\pic\3_Find_All_Anagrams_in_a_String.png)
 
 ```js
 var findAnagrams = function(s, p) {
@@ -173,7 +182,7 @@ var findAnagrams = function(s, p) {
 
 [930. Binary Subarrays With Sum](https://leetcode-cn.com/problems/binary-subarrays-with-sum/)
 
-![image-20210708133847228](C:\Users\pujhp\Desktop\Algo\SlideWindow\image-20210708133847228.png)
+![4_Binary_Subarrays_With_Sum](..\SlideWindow\pic\4_Binary_Subarrays_With_Sum.png)
 
 ```js
 var numSubarraysWithSum = function(nums, goal) {
@@ -205,7 +214,7 @@ var numSubarraysWithSum = function(nums, goal) {
 
 #### [3. Longest Substring Without Repeating Characters](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
 
-![image-20210708134026819](C:\Users\pujhp\Desktop\Algo\SlideWindow\image-20210708134026819.png)
+![5_Longest_Substring_Without_Repeating_Characters](..\SlideWindow\pic\5_Longest_Substring_Without_Repeating_Characters.png)
 
 ```js
 var lengthOfLongestSubstring = function(s) {
