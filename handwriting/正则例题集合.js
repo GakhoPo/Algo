@@ -15,3 +15,8 @@ console.log(containsRepeatingLetter(str));
 function matchesPattern(str) {
     return /^(\d{3}-){2}\d{4}$/.test(str);
 }
+//isUSD
+function isUSD(str) {
+    const reg = /^\$\d{1,3}(,\d{3})*(\.\d{2})?$/;
+    return reg.test(str);
+}
