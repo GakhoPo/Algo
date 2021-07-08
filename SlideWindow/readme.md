@@ -3,7 +3,7 @@
   * [Thoughts](#thoughts)
   * [Framework](#framework)
   * [Example](#example)
-    + [1. Minimum Window Substring](#1-minimum-window-substring--lt-76-)
+    + [1. Minimum Window Substring](#1-minimum-window-substring)
     + [2.Permutation in String](#2permutation-in-string)
     + [3. Find All Anagrams in a String](#3-find-all-anagrams-in-a-string)
     + [4. Binary Subarrays With Sum](#4-binary-subarrays-with-sum)
@@ -64,11 +64,11 @@ function slidingWindow(s, t) {
 
 ## Example
 
-### 1. Minimum Window Substring (LT 76)
+### 1. Minimum Window Substring
 
 Link: [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)
 
-### ![1_Minimum_Window_Substring](../SlideWindow/pic/1_Minimum_Window_Substring.png)
+![1_Minimum_Window_Substring](../SlideWindow/pic/1_Minimum_Window_Substring.png)
 
 ```js
 var minWindow = function(s, t) {
@@ -212,7 +212,7 @@ var numSubarraysWithSum = function(nums, goal) {
 
 ### 5.  Longest Substring Without Repeating Characters
 
-#### [3. Longest Substring Without Repeating Characters](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
+[3. Longest Substring Without Repeating Characters](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
 
 ![5_Longest_Substring_Without_Repeating_Characters](../SlideWindow/pic/5_Longest_Substring_Without_Repeating_Characters.png)
 
@@ -235,4 +235,3 @@ var lengthOfLongestSubstring = function(s) {
     return maxLen
 };
 ```
-
