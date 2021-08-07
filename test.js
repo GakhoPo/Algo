@@ -3,17 +3,16 @@ arr = [85, 24, 63, 45, 24, 17, 31, 96, 50];
 const mysort = (arr) => {
     const n = arr.length;
     if (!n || n < 2) return arr;
-    for (let i = 0; i < n; i++) {
-        let flag = false;
-        for (let j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-                flag = true;
-            }
+    for (let i = 1; i < n; i++) {
+        const temp = arr[i];
+        let j = i - 1;
+        while (j >= 0 && arr[j] > temp) {
+            arr[j + 1] = arr[j];
+            j--;
         }
-        if (!flag) break;
+        arr[j + 1] = temp;
     }
     return arr;
 };
 
-console.log("bubble", mysort(arr));
+console.log("insert", mysort(arr));
