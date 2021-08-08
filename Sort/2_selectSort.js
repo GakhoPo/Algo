@@ -1,11 +1,12 @@
 arr = [85, 24, 63, 45, 17, 31, 96, 50];
 
 function selectSort(arr) {
-    if(arr.length < 2) return arr;
-    for(let i = 0; i < arr.length; i++) {
+    const n = arr.length;
+    if (n < 2) return arr;
+    for (let i = 0; i < n; i++) {
         let minIndex = i;
-        for(let j = i + 1; j < arr.length; j++) {
-            minIndex = arr[j] < arr[minIndex] ? j : minIndex;
+        for (let j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) minIndex = j;
         }
         [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
     }
