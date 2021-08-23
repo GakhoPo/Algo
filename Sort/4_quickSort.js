@@ -2,8 +2,9 @@ arr = [85, 24, 63, 45, 17, 31, 96, 50, 22, 22];
 
 //Method 1
 function quickSort(arr) {
-    if (arr.length < 2) return arr;
-    const pivotIndex = Math.floor(arr.length / 2);
+    const n = arr.length;
+    if (n < 2) return arr;
+    const pivotIndex = Math.floor(n / 2);
     const pivot = arr.splice(pivotIndex, 1)[0];
     const left = [],
         right = [];
