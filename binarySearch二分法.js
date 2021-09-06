@@ -2,11 +2,11 @@ function binarySearch(data, target) {
     if (!data.length) return -1;
     let left = 0,
         right = data.length - 1;
-    while (left < right) {
-        let mid = Math.floor((left + right) / 2);
+    while (left <= right) {
+        let mid = Math.floor((right - left) / 2) + left;
         if (data[mid] > target) {
-            right = mid;
-        } else if (data[mid] === target) return mid + 1;
+            right = mid - 1;
+        } else if (data[mid] === target) return mid;
         else {
             left = mid + 1;
         }

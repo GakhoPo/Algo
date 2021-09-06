@@ -7,7 +7,6 @@ const str2arr = (str) => {
     const judge = () => {
         const c = str[index];
         if (c === "[") {
-            index++;
             return copyarr();
         } else if (c >= "0" && c <= "9") {
             return copyvalue();
@@ -23,6 +22,7 @@ const str2arr = (str) => {
     };
     const copyarr = () => {
         const arr1 = [];
+        index++;
         while (str[index] !== "]") {
             const c = str[index];
             if (c === " ") index++;
