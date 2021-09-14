@@ -24,6 +24,7 @@ Function.prototype.newBind = function (context, ...args) {
     args = args || [];
     let _this = this;
     function resultFn() {
+        //解决new情况，如果用new生成，this指代当前作用域，即this
         let isnew = this instanceof resultFn;
         return _this.newApply(
             isnew ? this : context,
