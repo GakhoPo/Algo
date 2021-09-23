@@ -28,9 +28,8 @@ class EventBus {
     }
 
     once(type, func) {
-        const one = () => {
-            let args = arguments;
-            func(...args);
+        const one = (...args) => {
+            func.apply(this, args);
             this.remove(type, one);
         };
         one.origin = func;
