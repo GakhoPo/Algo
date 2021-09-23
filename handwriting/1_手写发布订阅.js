@@ -12,7 +12,7 @@ class EventBus {
 
     subscribe(type, func) {
         let fns = this.handlers[type] || [];
-        if (fns.indexOf(func) !== -1) fns.push(func);
+        if (fns.indexOf(func) === -1) fns.push(func);
     }
 
     remove(type, func) {
