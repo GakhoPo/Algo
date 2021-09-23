@@ -28,12 +28,12 @@ class EventBus {
     }
 
     once(type, func) {
-        let fns = this.handlers[type] || [];
         const one = () => {
             let args = arguments;
             func(...args);
             this.remove(type, one);
         };
+        one.origin = func;
         this.on(type, one);
     }
 }
