@@ -33,6 +33,6 @@ class EventBus {
             this.remove(type, one);
         };
         one.origin = func;
-        this.on(type, one);
+        this.subscribe(type, one);
     }
 }
