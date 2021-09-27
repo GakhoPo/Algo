@@ -9,7 +9,10 @@ function _new() {
 function Student(name, age) {
     this.name = name;
     this.age = age;
+    return {
+        name: "Jiahao",
+    };
 }
 
 let newPerson = _new(Student, "hanson", 18);
-console.log(newPerson.name); // hanson
+console.log(newPerson.name, newPerson.age); // hanson
